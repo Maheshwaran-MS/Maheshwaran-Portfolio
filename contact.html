@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+:root{
+  --bg-light:#f0f9ff;
+  --text-light:#002b36;
+  --bg-dark:#0f0f1b;
+  --text-dark:#ffffff;
+  --neon:#ff0084;
+  --light-accent:#046256;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  transition:0.4s;
+}
+
+/* Dark Mode */
+body.dark{
+  background:var(--bg-dark);
+  color:var(--text-dark);
+}
+
+/* Light Mode */
+body.light{
+  background:linear-gradient(135deg,#ab0707,#bdd80d);
+  color:var(--text-light);
+}
+
+/* Particles */
+#particles-js{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+
+/* Navbar */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px 40px;
+  display:flex;
+  justify-content:flex-end;
+  z-index:1000;
+}
+
+.toggle-btn{
+  cursor:pointer;
+  padding:8px 20px;
+  border-radius:25px;
+  border:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+body.dark .toggle-btn{
+  background:var(--neon);
+  color:#000;
+  box-shadow:0 0 10px var(--neon);
+}
+
+body.light .toggle-btn{
+  background:var(--light-accent);
+  color:#fff;
+}
+
+/* Main Section */
+.contact-section{
+  position:relative;
+  z-index:2;
+  min-height:100vh;
+  padding:120px 40px 60px;
+}
+
+.contact-title{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:60px;
+}
+
+body.dark .contact-title{
+  color:var(--neon);
+}
+
+body.light .contact-title{
+  color:var(--light-accent);
+}
+
+/* Layout */
+.contact-wrapper{
+  display:flex;
+  gap:60px;
+  max-width:1200px;
+  margin:auto;
+  align-items:flex-start;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* LEFT SIDE */
+.contact-info{
+  flex:1;
+  min-width:300px;
+}
+
+.contact-info h3{
+  margin-bottom:25px;
+  font-size:24px;
+}
+
+.contact-info p{
+  display:flex;
+  align-items:center;
+  margin:18px 0;
+  font-size:16px;
+}
+
+.contact-info i{
+  font-size:20px;
+  margin-right:15px;
+  width:30px;
+}
+
+/* Icon colors */
+.fa-phone{ color:#25D366; }
+.fa-envelope{ color:#e74dff; }
+.fa-linkedin{ color:#0077b5; }
+.fa-location-dot{ color:#06f0c1 }
+
+.contact-info a{
+  text-decoration:none;
+  font-weight:500;
+}
+
+body.dark .contact-info a{
+  color:#ffffff;
+}
+
+body.light .contact-info a{
+  color:#000000;
+}
+
+/* RIGHT SIDE FORM */
+.contact-form{
+  flex:1;
+  min-width:300px;
+}
+
+/* Open to Work Text */
+.open-work{
+  margin-bottom:25px;
+  font-size:18px;
+  font-weight:500;
+  opacity:0.85;
+}
+
+body.dark .open-work{
+  color:#ffffff;
+}
+
+body.light .open-work{
+  color:#031b5c;
+}
+
+.contact-form form{
+  display:flex;
+  flex-direction:column;
+}
+
+.contact-form input,
+.contact-form textarea{
+  margin-bottom:20px;
+  padding:15px;
+  border-radius:10px;
+  border:none;
+  font-family:'Poppins';
+  font-size:15px;
+  outline:none;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea{
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+}
+
+body.light .contact-form input,
+body.light .contact-form textarea{
+  background:#ffffff;
+  color:#000;
+}
+
+.contact-form textarea{
+  resize:none;
+  height:150px;
+}
+
+/* Button */
+.send-btn{
+  padding:14px;
+  border-radius:25px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+body.dark .send-btn{
+  background:#ff6200;
+  color:#fff;
+}
+
+body.light .send-btn{
+  background:#003344;
+  color:#fff;
+}
+
+.send-btn:hover{
+  transform:scale(1.05);
+}
+.fa-whatsapp{ color:#25D366; }
+
+
+/* Back Button */
+.back-btn{
+  display:inline-block;
+  margin-top:40px;
+  padding:12px 25px;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+body.dark .back-btn{
+  background:var(--neon);
+  color:#000;
+}
+
+body.light .back-btn{
+  background:var(--light-accent);
+  color:#fff;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .contact-wrapper{
+    flex-direction:column;
+  }
+}
+
+</style>
+</head>
+
+<body class="dark">
+
+<div id="particles-js"></div>
+
+<nav>
+  <button class="toggle-btn" onclick="toggleMode()">Toggle Mode</button>
+</nav>
+
+<section class="contact-section">
+
+<h2 class="contact-title">Contact Me</h2>
+
+<div class="contact-wrapper">
+
+  <!-- LEFT -->
+  <div class="contact-info">
+    <h3>Let's Connect</h3>
+
+    <p>
+      <i class="fa-solid fa-phone"></i>
+      <a href="tel:+919025163485">+91 9025163485</a>
+    </p>
+
+    <p>
+  <i class="fa-brands fa-whatsapp"></i>
+  <a href="https://wa.me/919025163485" target="_blank">
+    WhatsApp Chat
+  </a>
+</p>
+
+    <p>
+      <i class="fa-solid fa-envelope"></i>
+      <a href="mailto:k.maheshwaran474@gmail.com">
+        k.maheshwaran474@gmail.com
+      </a>
+    </p>
+
+    <p>
+      <i class="fa-brands fa-linkedin"></i>
+      <a href="https://www.linkedin.com/in/maheshwaran-k-086250233" target="_blank">
+        LinkedIn Profile
+      </a>
+    </p>
+
+    <p>
+      <i class="fa-brands fa-x-twitter"></i>
+      <a href="https://x.com/Mahee7474" target="_blank">
+      Twitter</a>
+    </p>
+    
+    <p>
+      <i class="fa-solid fa-location-dot"></i>
+      Salem, Tamil Nadu, India
+    </p>
+
+    <a href="index.html" class="back-btn">Back to Home</a>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="contact-form">
+
+    <p class="open-work">Open To Work</p>
+
+   <form id="contact-form" action="https://formspree.io/f/xpqjrzol" method="POST">
+
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="text" name="subject" placeholder="Subject">
+  <textarea name="message" placeholder="Message" required></textarea>
+
+  <button type="submit" class="send-btn">
+    Send Message <i class="fa-solid fa-paper-plane"></i>
+  </button>
+
+  <!-- Success Message -->
+  <p id="success-msg" style="
+      display:none;
+      color:#00ff88;
+      font-weight:600;
+      margin-top:10px;
+      transition:opacity 0.5s ease;">
+      Message sent successfully! ✔
+  </p>
+
+  <!-- Error Message -->
+  <p id="error-msg" style="
+      display:none;
+      color:#ff4d4d;
+      font-weight:600;
+      margin-top:10px;
+      transition:opacity 0.5s ease;">
+      Failed to send message ❌ Please try again.
+  </p>
+
+</form>
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = this;
+  const successMsg = document.getElementById("success-msg");
+  const errorMsg = document.getElementById("error-msg");
+
+  // Hide both messages first
+  successMsg.style.display = "none";
+  errorMsg.style.display = "none";
+
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+
+      successMsg.style.display = "block";
+      successMsg.style.opacity = "1";
+      form.reset();
+
+      setTimeout(() => {
+        successMsg.style.opacity = "0";
+        setTimeout(() => {
+          successMsg.style.display = "none";
+        }, 500);
+      }, 4000);
+
+    } else {
+      showError();
+    }
+  })
+  .catch(() => {
+    showError();
+  });
+
+  function showError() {
+    errorMsg.style.display = "block";
+    errorMsg.style.opacity = "1";
+
+    setTimeout(() => {
+      errorMsg.style.opacity = "0";
+      setTimeout(() => {
+        errorMsg.style.display = "none";
+      }, 500);
+    }, 4000);
+  }
+
+});
+</script>
+
+
+
+  </div>
+
+</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 70 },
+    size: { value: 3 },
+    color: { value: "#00f7ff" },
+    line_linked: {
+      enable: true,
+      distance: 140,
+      color: "#00f7ff",
+      opacity: 0.4,
+      width: 1
+    },
+    move: { enable: true, speed: 3 }
+  }
+});
+
+function toggleMode(){
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+}
+</script>
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+</body>
+</html>
